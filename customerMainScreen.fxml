@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CustomerMainScreen">
+   <children>
+      <TabPane layoutY="-5.0" prefHeight="409.0" prefWidth="601.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Accounts">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: orchid;">
+                     <children>
+                        <TableView layoutX="7.0" layoutY="89.0" prefHeight="272.0" prefWidth="352.0" style="-fx-background-color: pink;">
+                          <columns>
+                            <TableColumn prefWidth="123.0" text="Account Number" />
+                            <TableColumn prefWidth="119.0" text="Account Type" />
+                              <TableColumn prefWidth="109.0" text="Balance" />
+                          </columns>
+                        </TableView>
+                        <SplitMenuButton layoutX="412.0" layoutY="89.0" mnemonicParsing="false" text="Account To Interact ">
+                          <items>
+                            <MenuItem mnemonicParsing="false" text="Action 1" />
+                            <MenuItem mnemonicParsing="false" text="Action 2" />
+                          </items>
+                        </SplitMenuButton>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="User Details">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: orchid;">
+                     <children>
+                        <TextField layoutX="21.0" layoutY="119.0" promptText="customer name" />
+                        <TextField layoutX="289.0" layoutY="211.0" promptText="address" />
+                        <TextField layoutX="21.0" layoutY="211.0" promptText="contact number" />
+                        <TextField layoutX="289.0" layoutY="119.0" promptText="customer ID" />
+                        <Text layoutX="108.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Your Details" textAlignment="CENTER" wrappingWidth="289.13671875">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Text>
+                     </children></AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

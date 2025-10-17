@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="645.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="39.0" layoutY="52.0" prefHeight="403.0" prefWidth="574.0" style="-fx-background-color: orchid;">
+        <columns>
+          <TableColumn prefWidth="104.0" text="TransactionID" />
+          <TableColumn prefWidth="87.0" text="Date" />
+            <TableColumn prefWidth="109.0" text="TransactionType" />
+            <TableColumn prefWidth="81.0" text="TAmount" />
+            <TableColumn prefWidth="93.0" text="Prebalance" />
+            <TableColumn prefWidth="99.0" text="Postbalance" />
+        </columns>
+      </TableView>
+      <Text layoutX="218.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions" textAlignment="CENTER" wrappingWidth="216.13671875">
+         <font>
+            <Font name="Book Antiqua" size="23.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

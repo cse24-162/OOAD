@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="452.0" prefWidth="638.0" style="-fx-background-color: orchid;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="209.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Downloads/ChatGPT%20Image%20Oct%2017,%202025,%2008_20_13%20PM.png" />
+         </image></ImageView>
+      <Text layoutX="181.0" layoutY="234.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome To Orchid Bank" textAlignment="CENTER" wrappingWidth="276.13671875">
+         <font>
+            <Font name="Poor Richard" size="24.0" />
+         </font>
+      </Text>
+      <Button layoutX="246.0" layoutY="286.0" mnemonicParsing="false" onAction="#openLoginScreen" prefHeight="25.0" prefWidth="126.0" text="LogIn" />
+      <Button layoutX="246.0" layoutY="347.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="126.0" text="Exit" />
+   </children>
+</AnchorPane>
