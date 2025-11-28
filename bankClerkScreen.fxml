@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BankClerkScreen">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="BankClerkScreenController">
    <children>
       <TabPane layoutX="-1.0" layoutY="-1.0" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
@@ -12,10 +12,14 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: pink;">
                      <children>
-                        <Button layoutX="26.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="View All Accounts" />
-                        <Button layoutX="400.0" layoutY="78.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="134.0" text="View All Customers" />
-                        <TextField layoutX="385.0" layoutY="173.0" promptText="customer/account" />
+                        <Button layoutX="26.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleViewAllAccounts" prefHeight="25.0" prefWidth="134.0" text="View All Accounts" />
+                        <Button layoutX="400.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleViewAllCustomers" prefHeight="25.0" prefWidth="134.0" text="View All Customers" />
+                         <Text layoutX="330.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search " wrappingWidth="74.13671875" />
+                        <TextField fx:id="searchField" layoutX="385.0" layoutY="173.0" onAction="#handleSearch" promptText="ID/Name" />
+                         <Button layoutX="540.0" layoutY="173.0" mnemonicParsing="false" onAction="#handleSearch" text="Go" />
                         <Text layoutX="330.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search " wrappingWidth="74.13671875" />
+                        <Button layoutX="21.0" layoutY="173.0" mnemonicParsing="false" onAction="#payInterest" prefHeight="25.0" prefWidth="143.0" text="Pay Interest" />
+                        <Button fx:id="allTransactions" layoutX="26.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleViewAllTransactions" prefHeight="25.0" prefWidth="134.0" text="View All Transactions" />
                      </children>
                   </AnchorPane>
             </content>
@@ -24,18 +28,18 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: pink;">
                      <children>
-                        <TextField id="name" layoutX="22.0" layoutY="26.0" promptText="name" />
-                        <TextField id="contactNumber" layoutX="361.0" layoutY="26.0" promptText="contact number" />
-                        <TextField id="openingBalance" layoutX="22.0" layoutY="80.0" promptText="Opening Balance" />
-                        <TextField id="address" layoutX="361.0" layoutY="80.0" promptText="address" />
-                        <TextField id="branch" layoutX="22.0" layoutY="141.0" promptText="branch" />
-                        <TextField id="accountType" layoutX="361.0" layoutY="141.0" promptText="accountType" />
-                        <TextField id="contactPerson" layoutX="361.0" layoutY="207.0" promptText="ContactPerson" />
-                        <TextField id="registrationNo" layoutX="22.0" layoutY="207.0" promptText="registrationNO" />
-                        <TextField id="employerName" layoutX="361.0" layoutY="266.0" promptText="employerName" />
-                        <TextField id="employeraddress" layoutX="22.0" layoutY="325.0" promptText="employerAddress" />
-                        <DatePicker id="dateOfBirth" layoutX="22.0" layoutY="266.0" promptText="dateOfBirth" />
-                        <Button id="createAccountButton" layoutX="387.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="DONE" />
+                        <TextField fx:id="name" layoutX="22.0" layoutY="26.0" promptText="name" />
+                        <TextField fx:id="contactNumber" layoutX="361.0" layoutY="26.0" promptText="contact number" />
+                        <TextField fx:id="openingBalance" layoutX="22.0" layoutY="80.0" promptText="Opening Balance" />
+                        <TextField fx:id="address" layoutX="361.0" layoutY="80.0" promptText="address" />
+                        <TextField fx:id="branch" layoutX="22.0" layoutY="141.0" promptText="branch" />
+                        <TextField fx:id="accountType" layoutX="361.0" layoutY="141.0" promptText="accountType" />
+                        <TextField fx:id="contactPerson" layoutX="361.0" layoutY="207.0" promptText="ContactPerson" />
+                        <TextField fx:id="registrationNo" layoutX="22.0" layoutY="207.0" promptText="registrationNO" />
+                        <TextField fx:id="employerName" layoutX="361.0" layoutY="266.0" promptText="employerName" />
+                        <TextField fx:id="employeraddress" layoutX="22.0" layoutY="325.0" promptText="employerAddress" />
+                        <DatePicker fx:id="dateOfBirth" layoutX="22.0" layoutY="266.0" promptText="dateOfBirth" />
+                        <Button fx:id="createAccountButton" layoutX="387.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleCreateAccount" prefHeight="25.0" prefWidth="97.0" text="DONE" />
                         <Label layoutX="22.0" layoutY="6.0" text="Customer Name" />
                         <Label layoutX="361.0" layoutY="6.0" text="Contact Number" />
                         <Label layoutX="22.0" layoutY="63.0" text="Opening Balance" />

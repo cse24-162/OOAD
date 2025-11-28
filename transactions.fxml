@@ -4,16 +4,17 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="645.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane id="backbutton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="660.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TransactionsController">
    <children>
-      <TableView layoutX="39.0" layoutY="52.0" prefHeight="403.0" prefWidth="574.0" style="-fx-background-color: orchid;">
+      <TableView fx:id="transactionsTable" layoutX="39.0" layoutY="52.0" prefHeight="403.0" prefWidth="574.0" style="-fx-background-color: orchid;">
         <columns>
-          <TableColumn prefWidth="104.0" text="TransactionID" />
-          <TableColumn prefWidth="87.0" text="Date" />
-            <TableColumn prefWidth="109.0" text="TransactionType" />
-            <TableColumn prefWidth="81.0" text="TAmount" />
-            <TableColumn prefWidth="93.0" text="Prebalance" />
-            <TableColumn prefWidth="99.0" text="Postbalance" />
+          <TableColumn fx:id="transactionIdColumn" prefWidth="104.0" text="TransactionID" />
+          <TableColumn fx:id="dateColumn" prefWidth="87.0" text="Date" />
+            <TableColumn fx:id="accTypeColumn" prefWidth="100.0" text="Account Type" />
+            <TableColumn fx:id="transactionTypeColumn" prefWidth="109.0" text="TransactionType" />
+            <TableColumn fx:id="amountColumn" prefWidth="81.0" text="TAmount" />
+            <TableColumn fx:id="prebalanceColumn" prefWidth="93.0" text="Prebalance" />
+            <TableColumn fx:id="postbalanceColumn" prefWidth="99.0" text="Postbalance" />
         </columns>
       </TableView>
       <Text layoutX="218.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transactions" textAlignment="CENTER" wrappingWidth="216.13671875">
@@ -21,5 +22,6 @@
             <Font name="Book Antiqua" size="23.0" />
          </font>
       </Text>
+      <Button layoutX="263.0" layoutY="458.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="35.0" prefWidth="122.0" text="Back" />
    </children>
 </AnchorPane>

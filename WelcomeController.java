@@ -8,11 +8,8 @@ public class WelcomeController {
     @FXML
     private void openLoginScreen(ActionEvent event) {
         try {
-            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(
-                    getClass().getResource("LoginScreen.fxml")
-            );
+            javafx.fxml.FXMLLoader loader = new javafx.fxml.FXMLLoader(getClass().getResource("LoginSceen.fxml"));
             javafx.scene.Parent root = loader.load();
-
             Stage stage = new Stage();
             stage.setTitle("Orchid Bank - Login");
             stage.setScene(new javafx.scene.Scene(root));

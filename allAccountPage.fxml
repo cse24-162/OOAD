@@ -4,15 +4,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="484.0" prefWidth="645.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="655.0" style="-fx-background-color: pink;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AccountsController">
     <children>
-        <TableView layoutX="39.0" layoutY="52.0" prefHeight="403.0" prefWidth="574.0" style="-fx-background-color: orchid;">
+        <TableView fx:id="accountsTable" layoutX="39.0" layoutY="52.0" prefHeight="403.0" prefWidth="574.0" style="-fx-background-color: orchid;">
             <columns>
-                <TableColumn prefWidth="147.0" text="Customer" />
-                <TableColumn prefWidth="117.0" text="CustomerID" />
-                <TableColumn prefWidth="108.0" text="Account Type" />
-                <TableColumn minWidth="9.0" prefWidth="99.0" text="Opening Date" />
-                <TableColumn prefWidth="102.0" text="Balance" />
+                <TableColumn fx:id="customerNameColumn" prefWidth="147.0" text="Customer" />
+                <TableColumn fx:id="customerIdColumn" prefWidth="117.0" text="CustomerID" />
+                <TableColumn fx:id="accountTypeColumn" prefWidth="108.0" text="Account Type" />
+                <TableColumn fx:id="openingDateColumn" minWidth="9.0" prefWidth="99.0" text="Opening Date" />
+                <TableColumn fx:id="balanceColumn" prefWidth="102.0" text="Balance" />
             </columns>
         </TableView>
         <Text layoutX="218.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accounts" textAlignment="CENTER" wrappingWidth="216.13671875">
@@ -20,5 +20,7 @@
                 <Font name="Book Antiqua" size="23.0" />
             </font>
         </Text>
+      <Button layoutX="152.0" layoutY="458.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="36.0" prefWidth="117.0" text="Back" />
+        <Button layoutX="330.0" layoutY="458.0" mnemonicParsing="false" onAction="#handleViewTransactions" prefHeight="36.0" prefWidth="150.0" text="View Transactions" />
     </children>
 </AnchorPane>

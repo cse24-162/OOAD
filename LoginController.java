@@ -1,11 +1,13 @@
+import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import java.awt.event.ActionEvent;
-import java.io.IOException;
+import dao.*;
 import javafx.scene.*;
 import javafx.stage.Stage;
+import java.sql.*;
 
 public class LoginController {
+    public Button loginButton;
     @FXML
     private TextField usernameField;
 
@@ -13,37 +15,50 @@ public class LoginController {
     private PasswordField passwordField;
 
     @FXML
-    private void handleLogin(ActionEvent event) {
+    public void handleLogin(ActionEvent event) {
         String username = usernameField.getText().trim();
         String password = passwordField.getText().trim();
+
         try {
-            if (username.equals("") || password.equals("")) {
-                showAlert(Alert.AlertType.WARNING, "Please enter both username and password.");
+            Connection conn = DBConnection.getConnection();
+            if (conn == null || conn.isClosed()) {
+                showAlert(Alert.AlertType.ERROR, "Database Error: Cannot connect to DB.");
                 return;
             }
-            FXMLLoader loader;
-            Parent root;
+            UserDAO userDAO = new UserDAO(conn);
+            UserDAO.LoginResult res = userDAO.login(username, password);
+            if (res == null) {
+                showAlert(Alert.AlertType.ERROR, "Login Failed: Invalid username/password");
+                return;
+            }
 
-            if (username.equalsIgnoreCase("customer") && password.equals("1234")) {
-                loader = new FXMLLoader(getClass().getResource("customerMainScreen.fxml"));
-                root = loader.load();
-                openNewScene(event, root, "Customer Dashboard");
-
-            } else if (username.equalsIgnoreCase("employee") && password.equals("4321")) {
-                loader = new FXMLLoader(getClass().getResource("bankClerkScreen.fxml"));
-                root = loader.load();
-                openNewScene(event, root, "Bank Clerk Dashboard");
-
+            if ("customer".equalsIgnoreCase(res.role)) {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("CustomerMainScreen.fxml"));
+                Parent root = loader.load();
+                // pass customer id to controller
+                CustomerMainScreenController ctrl = loader.getController();
+                ctrl.init(res.userId); // implement init(int userId) in controller
+                Stage stage = (Stage) usernameField.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Customer Main Screen");
             } else {
-                showAlert(Alert.AlertType.ERROR, "Invalid username or password.");
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("BankClerkScreen.fxml"));
+                Parent root = loader.load();
+                BankClerkScreenController ctrl = loader.getController();
+                ctrl.init(res.userId); // pass user id
+                Stage stage = (Stage)  usernameField.getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.setTitle("Bank Clerk Screen");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert(Alert.AlertType.ERROR, "An error occured while logging in.");
+            showAlert(Alert.AlertType.ERROR, "Error, An error occurred: " + e.getMessage());
         }
     }
 
-    private void showAlert(Alert.AlertType alertType, String message) {
+
+
+    public void showAlert(Alert.AlertType alertType, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle("Login Status");
         alert.setHeaderText(null);
@@ -51,10 +66,11 @@ public class LoginController {
         alert.showAndWait();
     }
 
-    private void openNewScene(ActionEvent event, Parent root, String title) {
+    public void openNewScene( Parent root, String title) {
         Stage stage = new Stage();
         stage.setTitle(title);
         stage.setScene(new Scene(root));
         stage.show();
     }
+
 }
